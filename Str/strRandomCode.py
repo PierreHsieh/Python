@@ -1,5 +1,6 @@
 # coding=utf-8
-import random
+from random import randint
+from random import choice
 
 
 def switchCode(rcode, swnum):
@@ -15,16 +16,16 @@ def getRandomCode(N):
     for val in range(97, 122+1):
         listc += (chr(val))
     print(listc)
-    numc = random.randint(1, N-1)
+    numc = randint(1, N-1)
     numn = N - numc
     print('numc=%d, numn=%d' % (numc, numn))
 
     for val in range(numc):
-        rcode += random.choice(listc)
+        rcode += choice(listc)
 
     for val in range(numn):
-        rcode += str(random.randint(0, 9))
-        # rcode += str(random.randint(1, 9))
+        rcode += str(randint(0, 9))
+        # rcode += str(randint(1, 9))
 
     """
     print("====")
@@ -44,7 +45,7 @@ def getRandomCode(N):
     rcode = switchCode(rcode, 4)
     rcode = switchCode(rcode, 3)
     rcode = switchCode(rcode, 2)
-    print(rcode)
+    print(rcode, type(rcode))
     # rukbw451 => ur5wb1k4
     return rcode
 
