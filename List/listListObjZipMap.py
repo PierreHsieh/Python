@@ -25,20 +25,24 @@ def getAverage(lists):
 
 listlistSource = [[80, 90, 78], [88, 99, 100], [77, 88, 60]]
 print(listlistSource, type(listlistSource))
+# [[80, 90, 78], [88, 99, 100], [77, 88, 60]] <class 'list'>
 result = getListByObj(listlistSource, 0)
 print(result)
+# [80, 88, 77]
 aveNum = getAverage(result)
 print("ave:", aveNum)
-
+# ave: 81.66666666666667
 
 print("=====")
 listTupleSource = [(80, 90, 78), (88, 99, 100), (77, 88, 60)]
 print(listTupleSource, type(listTupleSource))
+# [(80, 90, 78), (88, 99, 100), (77, 88, 60)] <class 'list'>
 result = getListByObj(listlistSource, 0)
 print(result)
+# [80, 88, 77]
 aveNum = getAverage(result)
 print("ave:", aveNum)
-
+# ave: 81.66666666666667
 
 print("=====")
 a = [80, 90, 78]
@@ -54,9 +58,10 @@ print(listlistSource, type(listlistSource))
 
 result = getListByObj(listlistSource, 0)
 print(result)
+# [80, 88, 77]
 aveNum = getAverage(result)
 print("ave:", aveNum)
-
+# ave: 81.66666666666667
 
 print("=====")
 a = [80, 90, 78]
