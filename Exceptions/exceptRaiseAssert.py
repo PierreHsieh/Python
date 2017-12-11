@@ -1,11 +1,19 @@
 # coding:utf-8
 
 
+# raise NameError('A is not define', 'check')
+'''
+Traceback (most recent call last):
+  File "E:/Git_Public/Python/Exceptions/exceptRaiseAssert.py", line 4, in <module>
+    raise NameError('A is not define', 'check')
+NameError: ('A is not define', 'check')
+'''
+
 def func(a, b):
-    assert b != 0, 'b is zero!!'
+    assert b != 0, 'b is zero!!' # b = 0 => False => Error
     if b == 0:
         raise ValueError('b is zero!')
-    return a/b
+    return (a / b)
 
 
 def foo(vals):
@@ -22,10 +30,10 @@ print('====== 1')
 # print(func(10, 0))
 '''
 Traceback (most recent call last):
-  File "I:\Git_Public\Python\Exceptions\exceptRaiseAssert.py", line 22, in <module>
+  File "E:/Git_Public/Python/Exceptions/exceptRaiseAssert.py", line 30, in <module>
     print(func(10, 0))
-  File "I:\Git_Public\Python\Exceptions\exceptRaiseAssert.py", line 5, in func
-    assert b != 0, 'b is zero!!'
+  File "E:/Git_Public/Python/Exceptions/exceptRaiseAssert.py", line 13, in func
+    assert b != 0, 'b is zero!!' # b = 0 => False => Error
 AssertionError: b is zero!!
 '''
 print('====== 2')
@@ -35,9 +43,9 @@ print('====== 3')
 # print(foo(123))
 '''
 Traceback (most recent call last):
-  File "I:\Git_Public\Python\Exceptions\exceptRaiseAssert.py", line 35, in <module>
+  File "E:/Git_Public/Python/Exceptions/exceptRaiseAssert.py", line 43, in <module>
     print(foo(123))
-  File "I:\Git_Public\Python\Exceptions\exceptRaiseAssert.py", line 12, in foo
+  File "E:/Git_Public/Python/Exceptions/exceptRaiseAssert.py", line 20, in foo
     assert isinstance(vals, list), ('vals is not list!')
 AssertionError: vals is not list!
 '''

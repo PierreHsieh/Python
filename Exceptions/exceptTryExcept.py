@@ -6,8 +6,11 @@ def func(d, key):
         key = int(key)
         print('call here')
         return d[key]
-    except:
-        print('catch an exception')
+    except (KeyError, ValueError) as e:
+    # except Exception as e:
+    # except:
+        # print('catch an exception')
+        print('catch an exception', e)
         return 0
 
 

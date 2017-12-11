@@ -1,6 +1,6 @@
 # coding:utf-8
 
-class TestWith(object):
+class classWith(object):
 
     def __enter__(self):
         print('call enter')
@@ -13,7 +13,7 @@ class TestWith(object):
         print('this is test')
 
 
-with TestWith() as t:
+with classWith() as t:
     t.test()
 # call enter
 # this is test

@@ -1,6 +1,7 @@
 # coding:utf-8
 
-
+# try => except => finally
+# try => else => finally
 try:
     raise NameError('Test')
     pass

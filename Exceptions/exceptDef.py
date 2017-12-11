@@ -15,7 +15,7 @@ if not result:
     raise FileError('File Not found')
 '''
 Traceback (most recent call last):
-  File "I:\Git_Public\Python\Exceptions\exceptDefException.py", line 14, in <module>
+  File "E:/Git_Public/Python/Exceptions/exceptDef.py", line 15, in <module>
     raise FileError('File Not found')
 __main__.FileError: File Not found
 '''
