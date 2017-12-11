@@ -16,6 +16,7 @@ class Student(object):
 
     @staticmethod
     def mycmp(obj1, obj2):
+        # print(Student.score)
         return obj1.getScore() >= obj2.getScore()
 
     @classmethod

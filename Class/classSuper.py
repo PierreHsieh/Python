@@ -1,7 +1,7 @@
 # conding:utf-8
 
 
-class Flower(object):
+class Flower(object): # class Flower():
     name = ''
     color = ''
 
@@ -25,6 +25,7 @@ class Rose(Flower):
         print('Rose: __init__', name, color, price)
         self.price = price
         super(Rose, self).__init__(name, color)
+        # Flower.__init__(name, color)
 
     def grew(self):
         print('Rose: grew')

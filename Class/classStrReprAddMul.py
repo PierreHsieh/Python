@@ -45,18 +45,39 @@ class Rose(Flower):
     def __mul__(self, other):
         return self.price * other
 
+    def __sub__(self, other):
+        pass
+
+    def __rtruediv__(self, other):
+        pass
+
+    def __lt__(self, other):
+        pass
+
+    def __le__(self, other):
+        pass
+
+    def __gt__(self, other):
+        pass
+
+    def __ge__(self, other):
+        pass
+
+listl = list('123')
+print(listl, ':', repr(listl))
+# ['1', '2', '3'] : ['1', '2', '3']
 
 rose = Rose('rose', 'red', 5)
 # Rose: __init__ rose red 5
 # Flower: __init__ rose red
 
+print(str(rose))
+# call __str__
+# red 5
+
 print(rose, ':', repr(rose))
 # call __str__
 # red 5 : Rose Class Object
-
-listl = list('123')
-print(listl, ':', repr(listl))
-# ['1', '2', '3'] : ['1', '2', '3']
 
 r = rose + rose
 print(r, rose * 5)

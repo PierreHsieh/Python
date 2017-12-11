@@ -22,6 +22,13 @@ class single(object):
         self.arg = num
 
 
+a = myInt(10)
+# myInt __new__ 10
+b = myInt(-10)
+# myInt __new__ -10
+print(type(a), a, b, id(a), id(b))
+# <class '__main__.myInt'> 10 10 35506696 35506736
+
 s1 = single(1)
 # single __new__ 1
 # call single init 1
@@ -39,10 +46,3 @@ print(id(s1), id(s2), id(single(3)), id(single(4)))
 
 print(s1.arg)
 # 4
-
-a = myInt(10)
-# myInt __new__ 10
-b = myInt(-10)
-# myInt __new__ -10
-print(type(a), id(a), id(b))
-# <class '__main__.myInt'> 35506696 35506736

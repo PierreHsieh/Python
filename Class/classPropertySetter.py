@@ -1,8 +1,11 @@
 # coding:utf-8
+
+
 class people(object):
     name = 'X'
     __age = 'X'
     gender = 'X'
+    __privatedata = 'X'
 
     def getName(self):
         return self.name
@@ -15,6 +18,9 @@ class people(object):
 
     def setAge(self, Age):
         self.__age = Age
+
+    def privatedata(self):
+        return self.privatedata
 
     @property
     def Age(self):
@@ -44,6 +50,10 @@ p1.name = 'Alan'
 p1.setAge(20)
 print(p1.name, p1.gender, p1.getAge())
 # Alan X 20
+
+print(p1.privatedata)
+# <bound method people.privatedata of <__main__.people object at 0x01F83950>>
+
 p1.Age = 30
 # call set age
 print(p1.Age)

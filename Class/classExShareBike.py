@@ -3,7 +3,7 @@ from time import time
 from time import sleep
 
 
-class sharebike(object):
+class shareBike(object):
     fname = ''
     price = ''
     s_time = 0
@@ -35,17 +35,17 @@ class sharebike(object):
         money = (1+int(tlens/3600))*self.price
         return money
 
-    def get_times(self):
+    def getTimes(self):
         return str(int((self.e_time - self.s_time) / 60)) + ':'\
                + str(int((self.e_time - self.s_time) % 60))
 
 
-ofo = sharebike('ofo', 1)
+ofo = shareBike('ofo', 1)
 ofo.unlock()
 sleep(2)
 ofo.lock()
 ofo.free = True
-print(ofo.get_times())
+print(ofo.getTimes())
 # 0:2
 print(ofo.pay())
 # 0
