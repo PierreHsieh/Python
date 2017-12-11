@@ -5,20 +5,43 @@ import re
 # re.match(pattern, string, flags=0)
 '''
 m = re.match
-m.start()/m.end()   # list
-m.span()            # tuple
-m.group()           # str
-m.groups()          # tuple
-m.groupdict()       # dict
+Match對象 說明
+m.start()/m.end()
+匹配開始和結束時的索引        # list
+
+m.span()
+匹配索引開始結束組成元組      # tuple
+
+m.group()
+匹配的字符串                  # str
+
+m.groups()
+包含所有子組的元組            # tuple
+
+m. groupdict()
+返回匹配的所有命名子組的字典  # dict
 '''
 '''
 flag
-re.l
-re.L
-re.M
-re.S
-re.U
-re.X
+描述
+
+Re.I
+匹配對大小寫不敏感
+
+Re.L
+做本地化識別匹配
+
+Re.M
+多行匹配，改變'^'和'$'的行為
+
+Re.S
+點任意匹配模式，改變'.'的行為
+
+Re.U
+根據Unicode字符集解析字符
+
+Re.X
+正則表達式可以是多行， 忽略空白字符，並可以加入註釋
 '''
 
 
