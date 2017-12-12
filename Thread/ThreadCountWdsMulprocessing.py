@@ -1,20 +1,10 @@
 # coding:utf-8
-from multiprocessing import Process
+from multiprocessing import Queue, Process
 from os import walk
 from os.path import join
 from time import time
 
 path = r'.\file\fiction'
-
-
-def countWordsByFile(fname):
-    result = 0
-    with open(fname) as f:
-        for line in f:
-            wds = line.strip().split()
-            result += len(wds)
-    # print(fname, result)
-    return result
 
 
 def countFiles(fpath):
@@ -28,17 +18,11 @@ def countFiles(fpath):
     return flist
 
 
-def countWdsByFlist(flist):
-    wds = 0
-    for fname in flist:
-        wds += countWordsByFile(fname)
-    print(wds)
-
-
 class ParseFileList(Process):
-    def __init__(self, flist):
+    def __init__(self, flist, queue):
         self.flist = flist
         self.result = 0
+        self.q = queue
         super(ParseFileList, self).__init__()
 
     def countWordsByFile(self, fname):
@@ -53,8 +37,10 @@ class ParseFileList(Process):
     def countWdsByFlist(self):
         wds = 0
         for fname in self.flist:
-            wds += countWordsByFile(fname)
+            wds += self.countWordsByFile(fname)
         print('PFL', wds)
+        self.result = wds
+        self.q.put(wds)
         # PFL 184648
         # PFL 639961
 
@@ -63,17 +49,30 @@ class ParseFileList(Process):
 
 
 if __name__ == "__main__":
+    q = Queue(10)
     s_time = time()
     flist = countFiles(path)
     snum = int(len(flist) / 2)
     # p = Process(target=countwdsbyflist, args=(flist[snum:],))
-    p = ParseFileList(flist[snum:])
+    # print((flist[snum:],))
+    # (['.\\file\\fiction\\David Copperfield.txt', '.\\file\\fiction\\Jane Eyre.txt', '.\\file\\fiction\\Oliver Twist.txt', '.\\file\\fiction\\Romeo and Juliet.txt'],)
+
+    p = ParseFileList(flist[snum:], q)
     p.start()
-    mainP = ParseFileList(flist[:snum])
+    mainP = ParseFileList(flist[:snum], q)
     mainP.run()
     # print(flist)
     # countWdsByFlist(flist[:snum])
     p.join()
+    result = 0
+    for i in range(q.qsize()):
+        tmp = q.get()
+        print('sresult =', tmp)
+        result += tmp
     e_time = time()
+    print('result :', result)
+    # sresult = 184648
+    # sresult = 639961
+    # result : 824609
     print(s_time, e_time, e_time - s_time)
     # 1512720522.1481838 1512720522.3527095 0.20452570915222168

@@ -28,10 +28,12 @@ def countWords(fpath):
     result = 0
     gen = walk(fpath)
     for tpath, dirs, files in gen:
-        print(tpath, dirs, files)
-        # .\file\fiction [] ["a b c's of science.txt", 'a christmas carol.txt', 'a tale of two cities.txt', "Aesop's Fables.txt", 'David Copperfield.txt', 'Jane Eyre.txt', 'Oliver Twist.txt', 'Romeo and Juliet.txt']
+        print(tpath, ':', dirs, ':', files)
+        # .\file\fiction : [] : ["a b c's of science.txt", 'a christmas carol.txt', 'a tale of two cities.txt', "Aesop's Fables.txt", 'David Copperfield.txt', 'Jane Eyre.txt', 'Oliver Twist.txt', 'Romeo and Juliet.txt']
         for name in files:
             fname = join(tpath, name)
+            # print(fname)
+            # .\file\fiction\a b c's of science.txt
             result += countWordsByFile(fname)
     print(result)
     # 824609

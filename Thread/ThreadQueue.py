@@ -5,9 +5,9 @@ from time import sleep
 
 
 def task(qu):
-    print('start get msg:')
+    print('task start get msg:')
     msg = qu.get()
-    print('get msg:', msg)
+    print('task get msg:', msg)
 
 
 if __name__ == '__main__':
@@ -15,10 +15,19 @@ if __name__ == '__main__':
     p = Process(target=task, args=(q, ))
     p.start()
     sleep(1)
-    print('P put msg')
+    print('main P put msg')
     q.put(1)
     p.join()
+'''    
+    q.put()
+    q.get()
+    q.put_nowait()
+    q.get_nowait()
+    q.empty()
+    q.full()
+    q.qsize()
+'''
 
-# start get msg:
-# P put msg
-# get msg: 1
+# task start get msg:
+# main P put msg
+# task get msg: 1

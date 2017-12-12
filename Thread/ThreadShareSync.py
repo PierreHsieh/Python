@@ -3,6 +3,42 @@
 from multiprocessing import Array, Value, Process, Lock
 
 val = Value('i', 0)
+arr = Array('i', range(10))
+# print(arr, ':', type(arr))
+# <SynchronizedArray wrapper for <multiprocessing.sharedctypes.c_long_Array_10 object at 0x02A35300>> : <class 'multiprocessing.sharedctypes.SynchronizedArray'>
+'''
+for c in arr:
+    print(c)
+0
+1
+2
+3
+4
+5
+6
+7
+8
+9
+0
+'''
+arr = Array('i', 10)
+# print(arr, ':', type(arr))
+# <SynchronizedArray wrapper for <multiprocessing.sharedctypes.c_long_Array_10 object at 0x025953A0>> : <class 'multiprocessing.sharedctypes.SynchronizedArray'>
+'''
+for c in arr:
+    print(c)
+0
+0
+0
+0
+0
+0
+0
+0
+0
+0
+'''
+
 lock = Lock()
 
 
@@ -14,7 +50,6 @@ def task(val, lock):
             print('-1 in task val:', val.value)
             val.value -= 1
             print('-2 in task val:', val.value)
-
         lock.release()
         num -= 1
 
@@ -36,7 +71,7 @@ if __name__ == '__main__':
     p.start()
     p1 = Process(target=task, args=(val, lock))
     p1.start()
-    task(val, lock)
+    # task(val, lock)
     p.join()
     p1.join()
 '''
