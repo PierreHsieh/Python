@@ -51,6 +51,7 @@ if __name__ == '__main__':
         tpool.addTask(testfunc, i)
     tpool.start()
     tpool.join()
+
     rs = tpool.getResult()
     for r in rs:
         print(r)

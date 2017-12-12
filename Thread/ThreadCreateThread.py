@@ -18,7 +18,7 @@ def createThread():
 
 if __name__ == '__main__':
     t = createThread()
-    thread_func()
+    threadFunc()
     t.join()
 # call thread_func
 # call thread_func

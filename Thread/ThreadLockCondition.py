@@ -10,9 +10,11 @@ con = Condition()
 def producer():
     global num
     count = 100
+
     lock.acquire()
     con.acquire()
     num = 10
+
     while(count > 0):
         if num > 10:
             con.wait()
@@ -21,6 +23,7 @@ def producer():
         count -= 1
         print('in p:num=', num, count)
         # sleep(0.1)
+
     con.release()
     sleep(0.1)
     lock.release()
@@ -30,6 +33,7 @@ def consumer():
     global num
     count = 100
     sleep(0.1)
+
     while(count > 0):
         con.acquire()
         if num > 0:
