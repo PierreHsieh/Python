@@ -129,3 +129,49 @@ print(m, ':', type(m))
 # <_sre.SRE_Match object; span=(0, 3), match='d12'> : <class '_sre.SRE_Match'>
 print(m.group(), ':', m.groups(), ':', type(m.groups()), m.groupdict())
 # d12 : () : <class 'tuple'> {}
+
+# ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+m = re.match(r'\w+(?#comment)1234', 'abc1234')
+print(m, ':', type(m))
+# <_sre.SRE_Match object; span=(0, 7), match='abc1234'> : <class '_sre.SRE_Match'>
+print(m.group(), ':', m.groups(), ':', type(m.groups()), m.groupdict())
+# abc1234 : () : <class 'tuple'> {}
+
+# =====================================
+
+m = re.match(r'a(?=\d)', 'a1')
+print(m, ':', type(m))
+# <_sre.SRE_Match object; span=(0, 1), match='a'> : <class '_sre.SRE_Match'>
+print(m.group(), ':', m.groups(), ':', type(m.groups()), m.groupdict())
+# a : () : <class 'tuple'> {}
+
+m = re.match(r'a(?=\d)', 'aa')
+print(m, ':', type(m))
+# None : <class 'NoneType'>
+# print(m.group(), ':', m.groups(), ':', type(m.groups()), m.groupdict())
+'''
+Traceback (most recent call last):
+  File "I:\Git_Public\Python\Regular\regularRE5.py", line 152, in <module>
+    print(m.group(), ':', m.groups(), ':', type(m.groups()), m.groupdict())
+AttributeError: 'NoneType' object has no attribute 'group'
+'''
+# =====================================
+
+m = re.match(r'a(?!\d)', 'a1')
+print(m, ':', type(m))
+# None : <class 'NoneType'>
+# print(m.group(), ':', m.groups(), ':', type(m.groups()), m.groupdict())
+'''
+Traceback (most recent call last):
+  File "I:\Git_Public\Python\Regular\regularRE5.py", line 165, in <module>
+    print(m.group(), ':', m.groups(), ':', type(m.groups()), m.groupdict())
+AttributeError: 'NoneType' object has no attribute 'group'
+'''
+
+m = re.match(r'a(?!\d)', 'aa')
+print(m, ':', type(m))
+# <_sre.SRE_Match object; span=(0, 1), match='a'> : <class '_sre.SRE_Match'>
+print(m.group(), ':', m.groups(), ':', type(m.groups()), m.groupdict())
+# a : () : <class 'tuple'> {}
+
